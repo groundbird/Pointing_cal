@@ -36,7 +36,7 @@ def cal_encoder2model_rep_dif(az, el, kidid, fitr):
     eldif = delE_til(az, fitr['AN'], fitr['AW'])
     return azdif,eldif
 
-def pointing_cal(az, el, kidid, num = 2, encoder = 'True', resultp = RESULTP):
+def pointing_cal(az, el, kidid, num = 2, encoder = True, resultp = RESULTP):
     '''Calculate Az/El after pointing calibration.
     Parameters
     ----------
@@ -48,18 +48,17 @@ def pointing_cal(az, el, kidid, num = 2, encoder = 'True', resultp = RESULTP):
         KIDID for calculation.
     num: int
         The number of repeats for calculating pointing offset.
+    encoder : Boolean
+        Whether azimuth data is raw data from encoder or not. Default : True
 
     Returns
     -------
-    time: array-like
-        Datetime array
-    utime: array-like
-        Unixtime array
-    kiddata: array-like
-        KID data
-    el_array: array-like
-        Elevation after merging
+    azimuth: array-like
+        Azimuth array after pointing calibration
+    elevation: array-like
+        Elevation array after pointing calibration
     '''
+    
     assert kidid in KIDIDS, 'There is no poinitng cal data. Please make sure the kidid.'
 
     fitr = read_pkl(resultp)
