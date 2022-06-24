@@ -17,7 +17,7 @@
 
 ### pointing.py
 ```pointing.py
-def pointing_cal(az, el, kidid, num = 2, encoder = 'True', resultp = RESULTP):
+def pointing_cal(az, el, kidid, num = 2, encoder = True, resultp = RESULTP):
 ```
 
 - `pointing_cal` is Main function for calculating Az/El after pointing calibration.
