@@ -11,8 +11,11 @@ def read_pkl(path):
 # in weka
 
 #RESULTP = '/data/sueno/home/workspace/GB/jupyter/202206/pointing_params_202205.pkl'
-RESULTP = '/data/sueno/home/workspace/script/gb_cal/pointing_params_202205.pkl'
-KIDIDS = np.array([ 0,  1,  2,  3,  4,  5,  6,  7, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22, 23, 24, 25])
+#RESULTP = '/data/sueno/home/workspace/script/gb_cal/pointing_params_202205.pkl'
+#RESULTP = '/data/ysueno/home/workspace/script/gb_cal/pointing/pointing_params_202205.pkl'
+RESULTP = './pointing_params_20230703.pkl'
+#KIDIDS = np.array([ 0,  1,  2,  3,  4,  5,  6,  7, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22, 23, 24, 25])
+KIDIDS = np.array([ 0,  1,  2,  3,  4,  5,  6,  7, 8, 10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22, 23, 24, 25]) # from 20230703
 
 def delA(el, az, IA, AN, AW, ifprint = False):
     return IA + AN*np.tan(np.deg2rad(el))*np.sin(np.deg2rad(az)) - AW*np.tan(np.deg2rad(el))*np.cos(np.deg2rad(az))
@@ -58,14 +61,13 @@ def pointing_cal(az, el, kidid, num = 2, encoder = True, resultp = RESULTP):
     elevation: array-like
         Elevation array after pointing calibration
     '''
-    
-    assert kidid in KIDIDS, 'There is no poinitng cal data. Please make sure the kidid.'
 
+    assert kidid in KIDIDS, 'There is no poinitng cal data. Please make sure the kidid.'
     fitr = read_pkl(resultp)
     # Azimuth direction of GroundBIRD encoder is opposite direction to AltAz coordinate.
-    if encoder: 
+    if encoder:
         az = (-az)%360
-    
+
     az1 = (az-fitr['IA' + f'{kidid:02}'])%360
     el1 = (el-fitr['IE' + f'{kidid:02}'])%360
     for i in range(num):
