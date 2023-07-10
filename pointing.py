@@ -13,9 +13,11 @@ def read_pkl(path):
 #RESULTP = '/data/sueno/home/workspace/GB/jupyter/202206/pointing_params_202205.pkl'
 #RESULTP = '/data/sueno/home/workspace/script/gb_cal/pointing_params_202205.pkl'
 #RESULTP = '/data/ysueno/home/workspace/script/gb_cal/pointing/pointing_params_202205.pkl'
-RESULTP = './pointing_params_20230703.pkl'
+#RESULTP = '/data/ysueno/home/workspace/script/Pointing_cal/pointing_params_20230703.pkl'
+RESULTP = '/data/ysueno/home/workspace/script/Pointing_cal/pointing_params_20230706.pkl'
+
 #KIDIDS = np.array([ 0,  1,  2,  3,  4,  5,  6,  7, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22, 23, 24, 25])
-KIDIDS = np.array([ 0,  1,  2,  3,  4,  5,  6,  7, 8, 10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22, 23, 24, 25]) # from 20230703
+KIDIDS = np.array([ 0,  2,  3,  4,  5,  6,  7, 8, 10, 11, 12, 14, 16, 19, 20, 21, 22, 23, 25]) # from 20230706
 
 def delA(el, az, IA, AN, AW, ifprint = False):
     return IA + AN*np.tan(np.deg2rad(el))*np.sin(np.deg2rad(az)) - AW*np.tan(np.deg2rad(el))*np.cos(np.deg2rad(az))
