@@ -34,7 +34,7 @@ def pointing_cal(az, el, kidid, num = 2, encoder = True, resultp = RESULTP):
 - This is for full array observations.
 
 ```pointing_new.py
-def pointing_cal_new(az, el, kidid, num = 2, encoder = True, resultp = RESULTP):
+def pointing_cal_new(az, el, chip, kidid, num = 2, encoder = True, resultp = RESULTP):
 ```
 
 - `pointing_cal_new` is Main function for calculating Az/El after pointing calibration.
