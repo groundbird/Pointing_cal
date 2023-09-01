@@ -29,7 +29,7 @@ def set_params(chips, kidids):
             chip_kidids.append(ichip_kidid)
     params = Parameters()
     for iy, ichip_kidid in enumerate(chip_kidids):
-        params.add('IA' + ichip_kidid, value = -55, min = -90, max = -20)
+        params.add('IA' + ichip_kidid, value = 55, min = 0, max = 120)
         params.add('IE' + ichip_kidid, value = 0, min = -11, max = 11)
         #params.add('IA' + ichip_kidid, value = 50.5 - 360)
         #params.add('IE' + ichip_kidid, value = 0)
@@ -48,7 +48,7 @@ def set_params_fix(chips, kidids, AN = -0.03067157, AW = -0.04660315):
             chip_kidids.append(ichip_kidid)
     params = Parameters()
     for iy, ichip_kidid in enumerate(chip_kidids):
-        params.add('IA' + ichip_kidid, value = -55, min = -90, max = -20)
+        params.add('IA' + ichip_kidid, value = 55, min = 0, max = 120)
         params.add('IE' + ichip_kidid, value = 0, min = -11, max = 11)
         #params.add('IA' + ichip_kidid, value = 50.5 - 360)
         #params.add('IE' + ichip_kidid, value = 0)

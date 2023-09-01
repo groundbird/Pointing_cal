@@ -105,11 +105,11 @@ def compare_input_manytime(az, el, chip, kidid, fitr, num):
     el2 = (el1-fitr['IE' + chip_kidid])%360
     for i in range(num):
         if i ==0:
-            azdif, eldif = cal_encoder2model_rep_dif(az2, el2, kidid, fitr)
+            azdif, eldif = cal_encoder2model_rep_dif(az2, el2, fitr)
             az3 = az2 - azdif
             el3 = el2 - eldif
         else:
-            azdif, eldif = cal_encoder2model_rep_dif(az3, el3, kidid, fitr)
+            azdif, eldif = cal_encoder2model_rep_dif(az3, el3, fitr)
             az3 = az2 - azdif
             el3 = el2 - eldif
     if num ==0:
